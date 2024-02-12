@@ -61,7 +61,7 @@
     <div class="row">
         <div class="col d-flex justify-content-center flex-column">
             <label for="">Email</label>
-            <input type="text" class="form-control" id="forgot_email" style="">
+            <input type="text" class="form-control" id="forgot_email">
             <div class="text-end mt-2">
                 <button class="btn btn-primary btn-sm" style="width:120px;" id="btn_forgot_password_submit">Recover</button>
             </div>
