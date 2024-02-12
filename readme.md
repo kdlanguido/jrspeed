@@ -1,12 +1,15 @@
 **JRSPEED ECOMMERCE SYSTEM**<br>
-<small>Complete Online E-Commerce system with Email Notication and Paymongo Integration.</small>
+Complete Online E-Commerce system with Email Notication and Paymongo Integration.
+with chartJs and WAMP Stack
 <br>
 
 How to install :
 1) **Create Database** <br>
 Database Name : projects_jrspeed_new
 
-2) **IMPORT DATABASE** <br>
+2) **Import Database** <br>
   Location : src\database\backup\projects_jrspeed_new.sql<br>
   
-3) **RUN IN APACHE**
+3) run apache & mysql
+
+4) Access localhost/jrspeed
