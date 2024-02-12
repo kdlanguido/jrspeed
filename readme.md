@@ -10,6 +10,6 @@ Database Name : projects_jrspeed_new
 2) **Import Database** <br>
   Location : src\database\backup\projects_jrspeed_new.sql<br>
   
-3) run apache & mysql
+3) Run apache & mysql
 
 4) Access localhost/jrspeed
