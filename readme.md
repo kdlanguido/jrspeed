@@ -2,7 +2,7 @@
 
 **JRSPEED ECOMMERCE SYSTEM**
 
-**IMPORT DATABASE**
-Location: src\database\backup\projects_jrspeed_new.sql
+**IMPORT DATABASE** <br>
+**Location:** src\database\backup\projects_jrspeed_new.sql
 
 **RUN IN APACHE**
