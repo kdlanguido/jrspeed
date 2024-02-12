@@ -1,6 +1,5 @@
 con_auth = 'src/database/controllers/auth_controller.php'
 
-
 $('.sidebar_btn').click(function () {
     $('.sidebar_btn').css('font-weight', 'normal')
 
@@ -9,17 +8,13 @@ $('.sidebar_btn').click(function () {
     $('#' + $(this).attr('goto')).fadeToggle();
 })
 
-
-
 $('.btn_logout').click(function () {
-
 
     payload = {
         "request_type": "logout"
     }
 
     _POST(con_auth, payload, (cb, res, msg) => {
-
         setCookie('cur_page', 'login')
         deleteCookie('user_id')
         deleteCookie('user_fname')
@@ -29,7 +24,6 @@ $('.btn_logout').click(function () {
         deleteCookie('user_address')
         deleteCookie('username')
         location.reload();
-        
     })
 
 })

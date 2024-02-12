@@ -218,7 +218,7 @@
                     </div>
                     <div class="mb-3">
                         <small>Email</small>
-                        <input type="email" class="form-control _required _required_string" id="txt_fb_email">
+                        <input type="email" class="form-control _required _required_email" id="txt_fb_email">
                     </div>
 
                     <div class="mb-3">
@@ -303,7 +303,7 @@
 
                 <div class="d-flex">
                     <div class="form-floating fu-div me-2">
-                        <input type="email" class="form-control me-2" id="lbl_mno" placeholder="">
+                        <input type="number" class="form-control me-2" id="lbl_mno" placeholder="">
                         <label style="font-size:9pt" for="lbl_mno">Mobile Number <span class="text-danger">*</span></label>
                     </div>
                     <div class="form-floating fu-div ">

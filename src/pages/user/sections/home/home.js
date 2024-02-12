@@ -31,6 +31,30 @@ $(document).ready(function () {
     h_load_orders(getCookie('user_id'))
   })
 
+  $('#txt_r_username').keyup(function () {
+
+    payload = {
+      request_type: "check_if_username_exists",
+      payload_data: {
+        username: $(this).val(),
+      },
+    };
+
+    _GET(con_accounts, payload, (cb) => {
+      if (cb == 1) {
+        show_toast('Username Exists', 'This username is taken', 'error')
+        $('#txt_r_username').addClass('border-danger')
+        $('#txt_r_username').addClass('border')
+        $('#btn_r_register_now').addClass('disabled')
+      } else {
+        $('#txt_r_username').removeClass('border-danger')
+        $('#txt_r_username').removeClass('border')
+        $('#btn_r_register_now').removeClass('disabled')
+      }
+    })
+
+  })
+
 });
 
 $('.btn_my_account').click(function () {
@@ -118,6 +142,8 @@ $("#btn_checkout").click(function () {
 $('#btn_h_proceed_checkout').click(function () {
   $('#h_md_proceed_checkout_confirm').modal('show')
 })
+
+
 
 $('#btn_r_register_now').click(function () {
 
@@ -645,56 +671,62 @@ function h_load_cart(user_info) {
     }
 
     $('#btn_confirm_checkout').unbind('click').click(function (e) {
+      tr_count = 0;
+      $('#tbl_checkout_order tbody tr').each(function () {
+        tr_count = tr_count + 1;
+      })
 
-      if (validate_input_checkout()) {
+      if (tr_count > 0) {
+        if (validate_input_checkout()) {
 
-        order_no = $(this).attr("order_no");
-
-        payload_data = {
-          request_type: "confirm_checkout",
-          order_no: $(this).attr("order_no"),
-          first_name: $('#lbl_fname').val(),
-          last_name: $('#lbl_lname').val(),
-          mobile_no: $('#lbl_mno').val(),
-          email: $('#lbl_email').val(),
-          address: $('#lbl_del_address').val(),
-          payment_mode: $('input[name="payment_method"]:checked').val()
-        };
-
-        _POST(con_txns, payload_data, () => {
-
-          payload = {
-            email_to: $('#lbl_email').val(),
-            subject: 'Order Confirmation - Order # [' + order_no + ']',
-            body: `
-            
-            <b> Dear `+ $('#lbl_fname').val() + `,</b>
-            <br><br>
-            We are thrilled to inform you that your order has been received. <br>
-            Expect a staff to give you a call for further instructions.
-            <br><br>
-            Thank you for being a valued customer.
-            <br><br>
-            <b>Best regards,</b>
-            <br>
-            JRSPEED
-            
-            `
+          order_no = $(this).attr("order_no");
+          payload_data = {
+            request_type: "confirm_checkout",
+            order_no: $(this).attr("order_no"),
+            first_name: $('#lbl_fname').val(),
+            last_name: $('#lbl_lname').val(),
+            mobile_no: $('#lbl_mno').val(),
+            email: $('#lbl_email').val(),
+            address: $('#lbl_del_address').val(),
+            payment_mode: $('input[name="payment_method"]:checked').val()
           };
 
-          _POST('src/database/controllers/emailer.php', payload, (cb) => {
-            show_toast('Check out', 'Check out success thank you. An order notification has been sent to your email.')
-            $('#tbl_shop_cart tbody').empty();
-            $('#cart_subtotal_price').text('₱ 0.00')
-            $('#btn_page_dashboard').trigger('click')
-            $('.db_btn_load_pending').trigger('click')
-          })
+          _POST(con_txns, payload_data, () => {
 
-        });
+            payload = {
+              email_to: $('#lbl_email').val(),
+              subject: 'Order Confirmation - Order # [' + order_no + ']',
+              body: `
+              
+              <b> Dear `+ $('#lbl_fname').val() + `,</b>
+              <br><br>
+              We are thrilled to inform you that your order has been received. <br>
+              Expect a staff to give you a call for further instructions.
+              <br><br>
+              Thank you for being a valued customer.
+              <br><br>
+              <b>Best regards,</b>
+              <br>
+              JRSPEED
+              
+              `
+            };
+
+            _POST('src/database/controllers/emailer.php', payload, (cb) => {
+              show_toast('Check out', 'Check out success thank you. An order notification has been sent to your email.')
+              $('#tbl_shop_cart tbody').empty();
+              $('#cart_subtotal_price').text('₱ 0.00')
+              $('#btn_page_dashboard').trigger('click')
+              $('.db_btn_load_pending').trigger('click')
+            })
+
+          });
+        } else {
+          show_toast('Check out failed', 'Fill in required fields', 'error')
+        }
       } else {
-        show_toast('Check out failed', 'Fill in required fields', 'error')
+        show_toast('Check out Failed', 'Your cart is empty!', 'error')
       }
-
     })
   })
 

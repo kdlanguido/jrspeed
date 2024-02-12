@@ -14,8 +14,8 @@ include 'src/pages/cashier/page_component/headers/header.php';
                     <li class="mb-2 ms-3">
                         <small class="text-secondary">MONITORING</small>
                         <ul class="sidenav-list ms-0 ps-1">
-                            <li class="mb-1 sidebar_btn" goto="page_orders">
-                                <a class="text-dark ms-1 active">
+                            <li class="mb-1 sidebar_btn" goto="page_orders" style="font-weight:bold">
+                                <a class="text-dark ms-1 ">
                                     <i class="fa-solid fa-sack-dollar fa-fw fa-sm pe-1"></i>
                                     Orders Monitoring
                                 </a>
@@ -516,7 +516,4 @@ include 'src/pages/cashier/page_component/headers/header.php';
 
 </section>
 
-<script src="src/pages/admin/control_panel/control_panel.js"></script>
-<!-- <script src="src/func/all.js"></script> -->
-
-<!-- <script src="src/func/admin.js"></script> -->
+<script src="src/pages/cashier/control_panel/control_panel.js"></script>

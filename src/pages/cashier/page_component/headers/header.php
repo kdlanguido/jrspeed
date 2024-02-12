@@ -10,4 +10,4 @@
 
 
 
-<script src="src/pages/admin/page_component/headers/header.js"></script>
+<script src="src/pages/cashier/page_component/headers/header.js"></script>

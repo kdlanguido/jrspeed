@@ -18,15 +18,15 @@ function generate_password()
 {
     // SET OF CHARS
     $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-    
+
     // DITO MAISTORE
     $randomString = '';
 
-// LENGTH = 10
+    // LENGTH = 10
     for ($i = 0; $i < 10; $i++) {
         // random number
         $index = rand(0, strlen($characters) - 1);
-        
+
         // iaaccess char variable para makabuo ng 10 chars random password
         $randomString .= $characters[$index];
     }
@@ -241,10 +241,43 @@ if (!$option) {
                 email = :email
         ';
 
-
-
     $d = [
         'email' => $payload_data['email'],
+    ];
+
+    $res  = $db->read($q, $d);
+
+    if (empty($res)) {
+        echo json_encode(
+            [
+                'status' => 200,
+                'msg' => 'Get Success...',
+                'data' => base64_encode(0)
+            ]
+        );
+    } else {
+        echo json_encode(
+            [
+                'status' => 200,
+                'msg' => 'Get Success...',
+                'data' => base64_encode(1)
+            ]
+        );
+    }
+} else if ($option == "check_if_username_exists") {
+    $db = new Database();
+
+    $q = '
+            SELECT 
+               *
+            FROM
+                tbl_users
+            WHERE
+                username = :username
+        ';
+
+    $d = [
+        'username' => $payload_data['username'],
     ];
 
     $res  = $db->read($q, $d);
@@ -356,7 +389,6 @@ if (!$option) {
     We received your account recovery request.<br><br>Kindly click this <a href ="jrspeed.com.ph/changepass.php?y=' . $user_id . '">link</a> 
     to reset your password.';
     send_email($subject, $message, $payload_data['email']);
-
 }
 
 
@@ -371,19 +403,19 @@ function send_email($subject, $message, $email)
     $mailer->Password = 'xQuZ^qHo}s#M';
     $mailer->SMTPSecure = 'tls';
     $mailer->Port = 26;
-    $mailer->setFrom('noreply@jrspeed.com.ph','JRSPEEDPH');
-$mailer->SMTPDebug = 2;
+    $mailer->setFrom('noreply@jrspeed.com.ph', 'JRSPEEDPH');
+    $mailer->SMTPDebug = 2;
     $mailer->addAddress($email);
     $mailer->isHTML(true);
     $mailer->Subject = $subject;
     $mailer->Body = $message;
-    
+
     $mailer->SMTPOptions = array(
-'ssl' => array(
-'verify_peer' => false,
-'verify_peer_name' => false,
-'allow_self_signed' => true
-)
-);
+        'ssl' => array(
+            'verify_peer' => false,
+            'verify_peer_name' => false,
+            'allow_self_signed' => true
+        )
+    );
     $mailer->send();
 }

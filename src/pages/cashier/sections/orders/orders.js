@@ -1,5 +1,10 @@
 con_txns = 'src/database/controllers/transactions_controller.php';
 
+pending_data_collections = {};
+topay_data_collections = {};
+toreceive_data_collections = {};
+completed_data_collections = {};
+
 $(document).ready(function () {
     om_load_orders()
 })
@@ -527,9 +532,13 @@ function om_load_orders() {
 
         $('.om_btn_paid_deliver_order').unbind('click').click(function () {
             $('#md_om_deliver_order').modal('show')
+            $('#md_om_btn_deliver_order').attr('order_no', $(this).attr('order_no'))
         })
 
-        $('#md_om_btn_deliver_order').attr('order_no', $(this).attr('order_no')).unbind('click').click(function () {
+        $('#md_om_btn_deliver_order').unbind('click').click(function () {
+
+            console.log(topay_data_collections)
+
 
             payload_data = {
                 "request_type": "deliver_paid_order",

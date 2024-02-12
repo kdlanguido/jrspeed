@@ -60,6 +60,8 @@ function TBL_SEARCH(input, table) {
             });
         });
     });
+
+    console.log('TABLE : ' + table + ' | Trigger : ' + input +'   successfully added search function...')
 }
 function ENC(data) {
     return btoa(JSON.stringify(data))

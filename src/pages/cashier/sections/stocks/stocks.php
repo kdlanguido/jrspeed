@@ -9,7 +9,7 @@
 
         </div>
 
-        <input type="text" class="form-control form-control-sm mb-2" placeholder="Search..." style="width:230px; float:right" id="am_txt_user_search">
+        <input type="text" class="form-control form-control-sm mb-2" placeholder="Search..." style="width:230px; float:right" id="sm_txt_search">
 
         <table class="table mt-3" id="tbl_stocks">
             <thead>
@@ -116,4 +116,4 @@
 </div>
 
 
-<script src="src/pages/admin/sections/stocks/stocks.js"></script>
+<script src="src/pages/cashier/sections/stocks/stocks.js"></script>

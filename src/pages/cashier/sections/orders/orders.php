@@ -4,12 +4,7 @@
     <div class="col p-2  mt-3">
 
         <div class="page_cp_header d-flex justify-content-between">
-
             <p class="lead">Orders Monitoring</p>
-            <div>
-                <a class="btn"><i class="fa-solid fa-magnifying-glass"></i></a>
-            </div>
-
         </div>
 
         <ul class="nav nav-tabs" role="tablist">

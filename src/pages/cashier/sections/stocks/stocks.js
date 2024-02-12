@@ -5,6 +5,8 @@ $(document).ready(function () {
 
     s_load_stocks()
 
+    TBL_SEARCH('sm_txt_search','tbl_stocks')
+
     $('#s_btn_add_stock').click(function () {
         s_get_product_list()
         $('#md_add_stocks').modal('show')
