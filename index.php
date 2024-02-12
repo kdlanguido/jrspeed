@@ -2,7 +2,6 @@
 // PAG NAGRELOAD MAKEEP YUNG SESSION/TRANSACTION
 session_start();
 
-
 if (!array_key_exists('sesh_authorized', $_SESSION) || $_SESSION['sesh_authorized'] == 0) {
     $_SESSION['sesh_authorized'] = 0;
     $_SESSION['sesh_access_level'] = 1;
