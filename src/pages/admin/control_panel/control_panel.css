@@ -1,0 +1,31 @@
+#sidebar_admin {
+    margin: 0;
+    padding: 0;
+    margin-top: 2em;
+    list-style-type: none;
+}
+
+#sidebar_admin ul {
+    list-style-type: none;
+}
+
+#sidebar_admin a {
+    text-decoration: none;
+}
+
+#sidebar_admin a:hover {
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* .btn_hover:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+} */
+
+.fa-eye:hover,
+.fa-gear:hover,
+.fa-trash-can:hover{
+    cursor: pointer;
+    transform: scale(1.1);
+}

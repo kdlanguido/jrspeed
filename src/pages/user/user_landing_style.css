@@ -1,0 +1,40 @@
+@media screen and (min-width: 365px) {
+    #login_box {
+        width: 300px;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    #login_box {
+        width: 500px;
+    }
+}
+
+@media screen and (min-width: 365px) {
+    #forgot_password_box {
+        width: 300px;
+    }
+
+    #forgot_email {
+        width: 100%;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    #forgot_password_box {
+        width: 500px;
+    }
+
+    #forgot_email {
+        width: 100%;
+    }
+}
+
+#btn_register_account {
+    text-decoration: none;
+    color: #0d6efd;
+}
+
+#btn_register_account:hover {
+    cursor: pointer
+}
