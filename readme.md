@@ -3,7 +3,7 @@ Complete Online E-Commerce system with Email Notication and Paymongo Integration
 with chartJs and WAMP Stack
 <br>
 <hr>
-How to install
+How to install <br>
 1) **Create Database** <br>
 DBName : projects_jrspeed_new
 
