@@ -5,10 +5,10 @@ with chartJs and WAMP Stack
 
 How to install :
 1) **Create Database** <br>
-Database Name : projects_jrspeed_new
+DBName : projects_jrspeed_new
 
 2) **Import Database** <br>
-  Location : src\database\backup\projects_jrspeed_new.sql<br>
+  Loc: src\database\backup\projects_jrspeed_new.sql<br>
   
 3) Run apache & mysql
 
